@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapna Punia - Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- GLOBAL VARIABLES & RESET --- */
+        :root {
+            --multiplier: 1;
+            --fs0: 8rem;
+            --size3: calc(3rem * var(--multiplier));
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --serif: 'Playfair Display', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        @media screen and (max-width: 991px) { :root { --fs0: 4.4rem; --multiplier: 0.75; } }
+        @media screen and (max-width: 767px) { :root { --fs0: 3.04rem; --multiplier: 0.5; } }
+        @media screen and (max-width: 479px) { :root { --fs0: 2.24rem; --multiplier: 0.4; } }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            font-family: var(--sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        /* Crucial: Prevents horizontal scrolling without breaking the sticky card animation */
+        body { overflow-x: clip; }
+        
+        /* Applied when the page loads to prevent scrolling until the CTA is clicked */
+        body.scroll-locked { overflow-y: hidden !important; }
+
+        /* --- PAGE 1: LOOKING FOR SOMETHING --- */
+        #page1 {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        #page1 nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+        
+        #page1 .brand { font-family: var(--serif); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 500; }
+        #page1 .nav-links { display: flex; align-items: center; gap: 2rem; }
+        #page1 .nav-links a { font-family: var(--sans); color: var(--text-color); text-decoration: none; font-size: 0.9rem; }
+        #page1 .nav-links .btn-talk { border: 1px solid var(--text-color); border-radius: 999px; padding: 0.6rem 1.2rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; transition: all 0.3s; font-family: var(--sans); font-weight: 500; }
+        #page1 .nav-links .btn-talk:hover { background-color: var(--text-color); color: var(--bg-color); }
+
+        @media screen and (max-width: 767px) {
+            #page1 .nav-links { display: none; }
+            #page1 nav { padding: 1.5rem; }
+        }
+
+        #page1 main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 6rem; }
+        #page1 .massive-text { font-family: var(--serif); font-size: var(--fs0); line-height: 0.9; letter-spacing: -0.03em; font-weight: 500; text-align: center; white-space: nowrap; color: var(--text-color); }
+        #page1 .hero-top { display: flex; align-items: center; justify-content: center; gap: var(--size3); }
+        
+        /* Updated Image Wrapper for Top Line (Straightened & Enlarged) */
+        #page1 .image-wrapper {
+            height: calc(var(--fs0) * 1.3);
+            aspect-ratio: 3 / 4;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+        }
+        #page1 .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        #page1 .cta-btn-wrap { margin-top: 3rem; }
+        /* Made IT MAY BE HERE bolder (font-weight: 900) */
+        #page1 .cta-btn { display: inline-block; font-family: var(--sans); background-color: var(--text-color); color: #e53935; text-decoration: none; padding: 1rem 2rem; border-radius: 999px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 900; transition: opacity 0.2s; }
+        #page1 .cta-btn:hover { opacity: 0.8; }
+
+        /* --- PAGE 2: I TELL STORIES --- */
+        #my-story {
+            background-color: #f9f9f9; 
+            color: #111111; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8vh 4vw;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--sans);
+        }
+        #my-story .massive-header { font-family: var(--serif); font-size: 13vw; font-weight: 500; line-height: 0.85; text-align: center; text-transform: uppercase; margin: 0 0 3rem 0; letter-spacing: -0.03em; width: 100%; max-width: 1600px; }
+        #my-story .subtext { font-family: var(--sans); font-size: 1.15rem; line-height: 1.6; text-align: center; max-width: 750px; margin: 0 auto; color: #333333; letter-spacing: 0.01em; }
+        #my-story .scroll-prompt-wrap { margin-top: 4rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        #my-story .scroll-gif { width: 40px; height: auto; mix-blend-mode: multiply; opacity: 0.8; }
+        @media (max-width: 768px) { #my-story { padding-top: 12vh; } #my-story .massive-header { font-size: 16vw; line-height: 0.9; margin: 0 0 2rem 0; } #my-story .subtext { font-size: 1rem; padding: 0 1rem; } }
+
+        /* --- PAGE 3: MY EXPERIENCE (STACKING CARDS FIX) --- */
+        #experience-section {
+            background-color: #f7f7f5; 
+            color: #1a1a1a; 
+            width: 100%;
+            overflow: visible; 
+            font-family: var(--sans);
+        }
+        .steps-section { padding: 15vh 5vw; max-width: 1300px; margin: 0 auto; }
+        .process-wrap { display: flex; gap: 5rem; align-items: flex-start; }
+        
+        .col-left { flex: 1; position: sticky; top: 20vh; }
+        .col-left h3 { font-size: 3.5rem; margin: 0 0 1.5rem; font-family: var(--serif); font-weight: 500; letter-spacing: -0.03em; color: #1a1a1a; }
+        .col-left p { font-size: 1.2rem; line-height: 1.5; margin-bottom: 2.5rem; color: #333; max-width: 90%; font-family: var(--sans); }
+        
+        /* Ensure there is enough padding to scroll past the final stacked card */
+        .col-right { flex: 1.2; display: block; padding-bottom: 20vh; }
+        .block { background: #ffffff; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); position: sticky; color: #1a1a1a; font-family: var(--sans); margin-bottom: 35vh; }
+        
+        /* Stacking Tops */
+        .block:nth-child(1) { top: 15vh; z-index: 1; }
+        .block:nth-child(2) { top: 18vh; z-index: 2; }
+        .block:nth-child(3) { top: 21vh; z-index: 3; }
+        .block:nth-child(4) { top: 24vh; z-index: 4; }
+        .block:nth-child(5) { top: 27vh; z-index: 5; } 
+        
+        /* Increased font-weight to 700 to make company names bolder */
+        .step-title { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin: 0 0 1rem; letter-spacing: 0.02em; font-family: var(--serif); color: #e53935; }
+        .step-desc { font-size: 1.1rem; line-height: 1.6; color: #444; margin: 0; font-family: var(--sans); }
+        .step-desc strong { color: #1a1a1a; }
+        
+        @media (max-width: 991px) { 
+            .process-wrap { flex-direction: column; gap: 3rem; } 
+            .col-left { position: relative; top: 0; margin-bottom: 2rem; } 
+            .block { position: relative; top: 0 !important; margin-bottom: 2rem !important; } 
+        }
+
+        /* --- PAGE 4: BRACE YOURSELF --- */
+        #trigger-section {
+            background-color: #1a1a1a;
+            color: #f5f5f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10vh 0;
+            position: relative;
+        }
+        .thanks-panel_contain { text-align: center; opacity: 0; transform: translateY(50px); display: flex; flex-direction: column; align-items: center; }
+        /* Font size matched to Page 1 */
+        .thanks-panel_text { font-family: var(--serif); font-size: var(--fs0); line-height: 0.9; margin: 0; font-weight: 500; letter-spacing: -0.03em;}
+        .thanks-panel_photo { margin-top: 2rem; max-width: 300px; filter: grayscale(100%); border: 2px solid #f5f5f0; }
+        .cta-btn-group { display: flex; gap: 1.5rem; margin-top: 2.5rem; justify-content: center; flex-wrap: wrap; }
+        
+        /* Bolder CTA Buttons */
+        #trigger-section .cta-btn { display: inline-block; background-color: #f5f5f0; color: #e53935 !important; text-decoration: none; padding: 1rem 2.5rem; border-radius: 999px; font-family: var(--sans); font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; transition: opacity 0.2s ease, transform 0.2s ease; }
+        #trigger-section .cta-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* --- PAGE 5: LET'S TALK --- */
+        #lets-talk-page {
+            background-color: #f9f9f9; 
+            color: #111111; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8vh 4vw;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--sans);
+        }
+        #lets-talk-page .massive-header { font-family: var(--serif); font-size: 13vw; font-weight: 500; line-height: 0.85; text-align: center; text-transform: uppercase; margin: 0 0 2rem 0; letter-spacing: -0.03em; width: 100%; max-width: 1600px; }
+        
+        /* Adjusted aspect-ratio to 1/1 to naturally zoom out the GIF without blank space */
+        #lets-talk-page .profile-img-wrap {
+            width: clamp(150px, 16vw, 200px);
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border: 1px solid rgba(17, 17, 17, 0.2);
+            margin: 0 auto 1.5rem auto;
+            border-radius: 4px;
+        }
+        #lets-talk-page .profile-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
+
+        .contact-details {
+            font-family: var(--sans);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333333;
+            margin: 1rem 0;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+        .contact-details strong { color: #111111; font-weight: 600; font-size: 1.15rem; }
+
+        .icon-wrap {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Updated Let's Talk icons with solid background and white SVGs */
+        .icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background-color: #e53935;
+            border: 2.5px solid #e53935;
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .icon-link:hover { 
+            background-color: transparent; 
+            color: #e53935; 
+            transform: translateY(-3px); 
+        }
+        .icon-link svg { width: 22px; height: 22px; fill: currentColor; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: LOOKING FOR SOMETHING -->
+    <section id="page1">
+        <nav>
+            <a href="#" class="brand">Sapna Punia</a>
+            <div class="nav-links">
+                <a href="#my-story" class="scroll-unlock">My Story</a>
+                <a href="https://drive.google.com/file/d/15Nzd37Uq7qfTZDBMWVDfY9fPDqsdwyKQ/view?usp=share_link" target="_blank" class="scroll-unlock">My Resume</a>
+                <a href="https://drive.google.com/file/d/1ebfYLWwFvEtyYYKeRMn3dDSt_-u9_HqP/view?usp=share_link" target="_blank" class="scroll-unlock">My Portfolio</a>
+                <a href="#lets-talk-page" class="btn-talk scroll-unlock">LET'S TALK</a>
+            </div>
+        </nav>
+        <main>
+            <div class="hero-content">
+                <div class="hero-top massive-text">
+                    <span>LOOKING FOR</span>
+                    <div class="image-wrapper">
+                        <!-- GIF Straightened & Enlarged -->
+                        <img src="https://media.giphy.com/media/g01ZnwAUvutuK8GIQn/giphy.gif" alt="Confused Man GIF">
+                    </div>
+                </div>
+                <div class="massive-text">
+                    SOMETHING?
+                </div>
+            </div>
+            <div class="cta-btn-wrap">
+                <a href="#my-story" class="cta-btn scroll-unlock">IT MAY BE HERE</a>
+            </div>
+        </main>
+    </section>
+
+    <!-- PAGE 2: I TELL STORIES -->
+    <section id="my-story">
+        <div class="story-container">
+            <h1 class="massive-header">
+                I Tell <span style="color: #e53935;">Stories</span><br>And I Build<br><span style="color: #e53935;">Brands.</span>
+            </h1>
+            <p class="subtext">
+                With a hybrid background spanning marketing management and creative execution, I bridge the gap between business objectives and consumer impact. I look beyond the brief to turn brand visions into market realities.
+            </p>
+            <div class="scroll-prompt-wrap">
+                <img src="arrow.gif" alt="Scroll Down" class="scroll-gif" onerror="this.style.display='none'" />
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: MY EXPERIENCE -->
+    <section id="experience-section">
+        <div class="steps-section">
+            <div class="process-wrap">
+                
+                <!-- Pinned Left Text -->
+                <div class="col-left">
+                    <h3>My Experience</h3>
+                    <p>Combining creative thinking with a strong understanding of how businesses and brands operate. Here is a look at my professional journey...</p>
+                </div>
+                
+                <!-- Scrolling Stacking Right Cards -->
+                <div class="col-right">
+                    
+                    <div class="block">
+                        <p class="step-title">Social Panga</p>
+                        <p class="step-desc"><strong>Group Head Copy | June 2026 - Present</strong><br><br>Handling social and digital mandates for Pringles India, Kellogg's, Axis Mutual Fund, Dhampure Sugar, Manipal Hospital and Parul University. Driving content strategy, managing a team of copywriters, and actively leading new business pitches.</p>
+                    </div>
+                    
+                    <div class="block">
+                        <p class="step-title">Uncommon Studio</p>
+                        <p class="step-desc"><strong>Senior Copywriter | June 2021 - May 2026</strong><br><br>Led copywriting and brand strategy for Aditya Birla Health Insurance, Mahindra Finance and IndusInd Bank. Drove annual and flagship brand initiatives, including the highly successful Activ One plan launch.</p>
+                    </div>
+                    
+                    <div class="block">
+                        <p class="step-title">Visa</p>
+                        <p class="step-desc"><strong>Marketing Manager | Jan 2020 - May 2021</strong><br><br>Led brand and product marketing across India, Sri Lanka, and Nepal. Spearheaded high-visibility initiatives like Contactless 2.0 and the Tokyo Olympics campaigns, and built strategic partnerships with HDFC, SBI, and Spotify.</p>
+                    </div>
+                    
+                    <div class="block">
+                        <p class="step-title">BBDO</p>
+                        <p class="step-desc"><strong>Associate Client Servicing Director | Mar 2018 - Dec 2019</strong><br><br>Led brand strategy and communication for Idea Telecom during the Vodafone-Idea merger. Played a key role in the re-launch of Lacto Calamine.</p>
+                    </div>
+                    
+                    <div class="block">
+                        <p class="step-title">Publicis Ambience</p>
+                        <p class="step-desc"><strong>Sr. Client Servicing Executive | Oct 2015 - Feb 2018</strong><br><br>Drove the rebranding launch of Sony LIV, managing the journey from pitch to rollout. Handled integrated campaigns for Citibank, across digital and ATL.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4: BRACE YOURSELF (GSAP FADE IN ONLY) -->
+    <div id="trigger-section">
+        <div class="thanks-panel_contain" id="brace-yourself">
+            <p class="thanks-panel_text">BRACE YOURSELF</p>
+            <img src="https://cdn.prod.website-files.com/64aebd4d8781f69508b1453a/64af0108d01e54ab70c4b6d5_beautiful-drunk-marilyn-monroe-w0gahofoy30aambw.gif" loading="eager" alt="Monroe GIF" class="thanks-panel_photo"/>
+            <div class="cta-btn-group">
+                <a href="https://drive.google.com/file/d/1ebfYLWwFvEtyYYKeRMn3dDSt_-u9_HqP/view?usp=share_link" target="_blank" class="cta-btn scroll-unlock">
+                    VIEW MY PORTFOLIO
+                </a>
+                <a href="https://drive.google.com/file/d/15Nzd37Uq7qfTZDBMWVDfY9fPDqsdwyKQ/view?usp=share_link" target="_blank" class="cta-btn scroll-unlock">
+                    VIEW MY RESUME
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: LET'S TALK -->
+    <section id="lets-talk-page">
+        <h1 class="massive-header">
+            Let's Talk
+        </h1>
+
+        <!-- Black & White Profile GIF (Ratio adjusted to zoom out cleanly) -->
+        <div class="profile-img-wrap">
+            <img src="https://www.image2url.com/r2/default/gifs/1794417453803-db65c824-e053-415e-9ba7-fd9069e1acf5.gif" alt="Sapna Punia" class="profile-img" onerror="this.src='https://placehold.co/300x400/f9f9f9/111?text=Sapna'"/>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-details">
+            <p><strong>Sapna Punia</strong></p>
+            <p>Navi Mumbai, India</p>
+            <p>+91 9022321379</p>
+            <p>sapna.punia91@gmail.com</p>
+        </div>
+
+        <!-- Clickable Action Icons -->
+        <div class="icon-wrap">
+            <!-- Mail Icon -->
+            <a href="mailto:sapna.punia91@gmail.com?subject=Let's%20Connect" class="icon-link" aria-label="Email Sapna">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+                </svg>
+            </a>
+            
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/sapna-punia-1a805b61/" target="_blank" class="icon-link" aria-label="Sapna's LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- GSAP Scripts for Page Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // 1. Initial Scroll Lock Logic
+        // Locks the screen upon refresh to prevent scrolling down without intent
+        document.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo(0, 0); 
+            document.body.classList.add("scroll-locked");
+        });
+
+        // Unlocks scrolling once a permitted action button/nav link is clicked
+        const unlockLinks = document.querySelectorAll('.scroll-unlock');
+        unlockLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.body.classList.remove("scroll-locked");
+            });
+        });
+
+        // 2. GSAP Animations for "Brace Yourself" section
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reveal Animation
+        gsap.fromTo("#brace-yourself", 
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: "#trigger-section",
+                    start: "top 75%", 
+                    end: "center center",
+                    scrub: 1 
+                }
+            }
+        );
+
+        // Native Pinning to hold it on screen for an extra scroll
+        ScrollTrigger.create({
+            trigger: "#trigger-section",
+            start: "top top", 
+            end: "+=120%",    // Holds for 120% of viewport height
+            pin: true,        
+            pinSpacing: true  
+        });
+    </script>
+</body>
+</html>
